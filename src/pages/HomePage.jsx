@@ -1,9 +1,9 @@
 // Homepage: the primary entry point for learners, partners, and funders.
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProgrammeCard from "../components/ProgrammeCard";
 import { programmeCategories, programmes } from "../data/programmes";
-import { siteImages } from "../data/images";
+import { heroSlides } from "../data/images";
 import { testimonials } from "../data/testimonials";
 import FaqSection from "../components/FaqSection";
 import OpportunitiesBoard from "../components/OpportunitiesBoard";
@@ -11,11 +11,23 @@ import OpportunitiesBoard from "../components/OpportunitiesBoard";
 function HomePage() {
   const [activeCategory, setActiveCategory] = useState("All programmes");
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [activeHeroSlide, setActiveHeroSlide] = useState(0);
   const visibleProgrammes =
     activeCategory === "All programmes"
       ? programmes
       : programmes.filter((programme) => programme.category === activeCategory);
   const testimonial = testimonials[activeTestimonial];
+
+  useEffect(() => {
+    const slideTimer = window.setInterval(() => {
+      setActiveHeroSlide(
+        (currentSlide) => (currentSlide + 1) % heroSlides.length,
+      );
+    }, 6000);
+    return () => window.clearInterval(slideTimer);
+  }, []);
+
+  const heroSlide = heroSlides[activeHeroSlide];
 
   return (
     <main id="top" className="home-page">
@@ -43,13 +55,16 @@ function HomePage() {
         </div>
         <div
           className="hero-visual reveal reveal--two"
-          aria-label={siteImages.hero.alt}
-          style={{ "--hero-image": `url(${siteImages.hero.src})` }}
+          aria-label={heroSlide.alt}
         >
           <div
-            className="hero-image"
+            key={heroSlide.src}
+            className="hero-image hero-image--carousel"
             role="img"
-            aria-label={siteImages.hero.alt}
+            aria-label={heroSlide.alt}
+            style={{
+              backgroundImage: `linear-gradient(90deg, rgba(0, 0, 0, 0.76), rgba(0, 0, 0, 0.25)), url("${heroSlide.src}")`,
+            }}
           />
           <div className="hero-sticker">
             <strong>01</strong>
@@ -64,6 +79,18 @@ function HomePage() {
           <div className="hero-caption">
             <span>TWOPNM / 2025</span>
             <span>Johannesburg, South Africa</span>
+          </div>
+          <div className="hero-slide-indicators" aria-label="Hero image slides">
+            {heroSlides.map((slide, index) => (
+              <button
+                key={slide.src}
+                type="button"
+                className={index === activeHeroSlide ? "is-active" : ""}
+                onClick={() => setActiveHeroSlide(index)}
+                aria-label={`Show hero image ${index + 1}`}
+                aria-pressed={index === activeHeroSlide}
+              />
+            ))}
           </div>
         </div>
       </section>

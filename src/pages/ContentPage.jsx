@@ -124,7 +124,7 @@ function ContentPage({ type }) {
     <main className="content-page">
       <section
         className={`page-hero page-hero--with-image page-hero--${type}`}
-        style={{ "--page-image": `url(${image.src})` }}
+        style={{ "--page-image": `url("${image.src}")` }}
       >
         <div>
           <p className="kicker">
