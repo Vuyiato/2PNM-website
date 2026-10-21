@@ -5,6 +5,7 @@ import ProgrammeCard from "../components/ProgrammeCard";
 import { programmeCategories, programmes } from "../data/programmes";
 import { heroSlides } from "../data/images";
 import { testimonials } from "../data/testimonials";
+import PartnerLogos from "../components/PartnerLogos";
 import FaqSection from "../components/FaqSection";
 import OpportunitiesBoard from "../components/OpportunitiesBoard";
 
@@ -40,9 +41,8 @@ function HomePage() {
             Build your future <em>in technology.</em>
           </h1>
           <p className="hero-intro">
-            Free ICT and 4IR skills programmes designed to equip South African
-            youth with practical skills, confidence, and a pathway into
-            opportunity.
+            ICT and 4IR skills programmes designed to equip South African youth
+            with practical skills, confidence, and a pathway into opportunity.
           </p>
           <div className="hero-actions">
             <Link className="button" to="/programmes">
@@ -77,7 +77,7 @@ function HomePage() {
             </span>
           </div>
           <div className="hero-caption">
-            <span>TWOPNM / 2025</span>
+            <span>TWOPNM / {new Date().getFullYear()}</span>
             <span>Johannesburg, South Africa</span>
           </div>
           <div className="hero-slide-indicators" aria-label="Hero image slides">
@@ -258,17 +258,59 @@ function HomePage() {
               →
             </button>
           </div>
+          <ul className="testimonial-voices" aria-label="Choose a story">
+            {testimonials.map((item, index) => (
+              <li key={item.name}>
+                <button
+                  type="button"
+                  className={index === activeTestimonial ? "is-active" : ""}
+                  aria-pressed={index === activeTestimonial}
+                  onClick={() => setActiveTestimonial(index)}
+                >
+                  <span className="testimonial-initials" aria-hidden="true">
+                    {item.name
+                      .split(" ")
+                      .filter(Boolean)
+                      .slice(0, 2)
+                      .map((part) => part[0])
+                      .join("")}
+                  </span>
+                  <span className="testimonial-voice-name">{item.name}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
-        <article className="testimonial-card">
+        <article className="testimonial-card" key={testimonial.name}>
           <span className="testimonial-quote" aria-hidden="true">
             “
           </span>
-          <blockquote>{testimonial.quote}</blockquote>
-          <div>
-            <strong>{testimonial.name}</strong>
-            <span>{testimonial.role}</span>
+          <div className="testimonial-scroll" tabIndex={0}>
+            <blockquote
+              className={testimonial.quote.length > 420 ? "is-long" : undefined}
+            >
+              {testimonial.quote.replace(/([a-z])\.([A-Z])/g, "$1. $2")}
+            </blockquote>
           </div>
+          <footer>
+            <strong>{testimonial.name}</strong>
+            {testimonial.role.trim() && <span>{testimonial.role.trim()}</span>}
+          </footer>
         </article>
+      </section>
+      <section className="partners-band" aria-label="Our partners">
+        <div className="partners-band-copy">
+          <p className="eyebrow">In partnership with</p>
+          <h2>
+            Backed by
+            <br />
+            <em>trusted names.</em>
+          </h2>
+          <Link className="text-link" to="/about#partners">
+            Meet our partners <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <PartnerLogos />
       </section>
       <section className="opportunities-section">
         <div className="section-header">

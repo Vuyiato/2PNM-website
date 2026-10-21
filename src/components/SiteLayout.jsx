@@ -5,14 +5,16 @@ import {
   FaEnvelope,
   FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
+  FaTiktok,
   FaXTwitter,
+  FaWhatsapp,
 } from "react-icons/fa6";
 import { socialLinks } from "../data/socials";
 
 const socialIcons = {
   Facebook: FaFacebookF,
-  LinkedIn: FaLinkedinIn,
+  TikTok: FaTiktok,
+  WhatsApp: FaWhatsapp,
   X: FaXTwitter,
   Instagram: FaInstagram,
   Email: FaEnvelope,
@@ -161,25 +163,24 @@ function SiteLayout() {
           </div>
           <div>
             <p className="eyebrow">Connect</p>
-            <a href="mailto:info@2pnm.co.za">info@2pnm.co.za</a>
-            <a
-              href="https://www.instagram.com/2pnm2025"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Instagram ↗
-            </a>
-            <a
-              href="https://www.linkedin.com/in/twopnm-academy-845710370/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn ↗
-            </a>
+            {socialLinks.map(({ label, href }) => (
+              <a
+                key={label}
+                href={label === "Email" ? `mailto:${href}` : href}
+                target={label === "Email" ? undefined : "_blank"}
+                rel={label === "Email" ? undefined : "noreferrer"}
+              >
+                {label === "WhatsApp"
+                  ? "WhatsApp: 066 282 2088"
+                  : label === "Email"
+                    ? href
+                    : `${label} ↗`}
+              </a>
+            ))}
           </div>
         </div>
         <div className="footer-bottom">
-          <span>© 2025 TWOPNM Academy</span>
+          <span>© {new Date().getFullYear()} TWOPNM Academy</span>
           <span>Johannesburg, South Africa</span>
         </div>
       </footer>

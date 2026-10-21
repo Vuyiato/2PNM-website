@@ -8,7 +8,8 @@ import { fileURLToPath } from 'node:url'
 
 const app = express()
 const port = Number(process.env.API_PORT || 3001)
-const adminEmail = process.env.ADMIN_EMAIL || 'info@2pnm.co.za'
+// All form submissions are delivered to the organisation inbox.
+const adminEmail = 'info@2pnm.co.za'
 const currentDirectory = path.dirname(fileURLToPath(import.meta.url))
 const dataDirectory = path.join(currentDirectory, 'data')
 const submissionsFile = path.join(dataDirectory, 'applications.json')
@@ -59,6 +60,8 @@ app.post('/api/applications', async (request, response) => {
         text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nProgramme: ${programme}\nMessage: ${message || 'None'}\nSubmitted: ${submission.submittedAt}`,
       })
       emailSent = true
+    } else {
+      console.warn('SMTP is not configured: submission saved but not emailed.')
     }
     return response.status(201).json({ ok: true, emailSent })
   } catch (error) {

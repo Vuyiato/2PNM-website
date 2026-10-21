@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { siteImages } from "../data/images";
 import FaqSection from "../components/FaqSection";
 import OpportunitiesBoard from "../components/OpportunitiesBoard";
+import AboutExtras from "../components/AboutExtras";
 
 const pageContent = {
   about: {
@@ -149,6 +150,7 @@ function ContentPage({ type }) {
           ))}
         </section>
       )}
+      {type === "about" && <AboutExtras />}
       {type === "opportunities" && <FaqSection />}
       <section className="page-cta">
         <h2>Ready to take the next step?</h2>

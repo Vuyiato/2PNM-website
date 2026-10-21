@@ -3,8 +3,6 @@ export const programmeCategories = [
   "All programmes",
   "4IR & Emerging Tech",
   "IT & Technical",
-  "Digital & Creative",
-  "Business & Professional",
 ];
 
 export const programmes = [
@@ -22,7 +20,7 @@ export const programmes = [
     eligibility:
       "South African youth with an interest in technology and a willingness to learn. Final requirements depend on the funded intake.",
     delivery:
-      "Blended learning with guided sessions, practical projects, and independent study.",
+      "Hybrid learning combines online study with scheduled in-person sessions. Expect guided lessons, practical projects, and independent study between sessions.",
     accreditation:
       "Programme and accreditation details are confirmed for each intake.",
     funding:
@@ -54,7 +52,7 @@ export const programmes = [
     eligibility:
       "Learners who are curious about computers, networks, privacy, and protecting information.",
     delivery:
-      "Practical, scenario-based learning supported by demonstrations, exercises, and mentor guidance.",
+      "Hybrid learning combines online study with scheduled in-person sessions. Practical, scenario-based exercises, demonstrations, and mentor guidance help you apply what you learn.",
     accreditation:
       "Accreditation and certification pathways are confirmed for each intake.",
     funding:
@@ -74,97 +72,105 @@ export const programmes = [
   },
   {
     number: "03",
-    slug: "digital-skills",
-    title: "Digital Skills",
-    category: "Digital & Creative",
+    slug: "internet-of-things",
+    title: "Internet of Things",
+    category: "4IR & Emerging Tech",
     description:
-      "Grow the everyday digital confidence you need to study, work, and create.",
-    duration: "6 months",
-    level: "Beginner friendly",
-    tag: "Start here",
+      "Learn how connected devices collect and share data to power smart systems.",
+    duration: "By intake",
+    level: "Career starter",
+    tag: "Connected technology",
     accent: "mint",
     eligibility:
-      "Beginners, job seekers, graduates, and anyone who wants stronger everyday digital confidence.",
+      "Learners interested in technology, electronics, data, and how connected devices solve practical problems. Any specific entry requirements are confirmed for each intake.",
     delivery:
-      "Accessible guided learning with practical tasks based on study, work, and daily digital life.",
+      "Hybrid learning combines online study with scheduled in-person sessions. Guided lessons and practical activities help you understand connected-device systems and apply the concepts to real-world examples.",
     accreditation:
-      "Completion recognition depends on the specific programme intake.",
-    funding: "Funded places may be available for qualifying learners.",
+      "Accreditation and certification details are confirmed for each intake.",
+    funding:
+      "Funding availability and eligibility depend on the specific opportunity and intake.",
     learn: [
-      "Digital communication and collaboration",
-      "Documents, spreadsheets, and presentations",
-      "Online research and information safety",
-      "Digital workplace confidence",
+      "Internet of Things concepts and common use cases",
+      "How sensors, devices, networks, and data work together",
+      "Connected-device communication and basic system design",
+      "Privacy, security, and responsible use of connected technology",
     ],
     careers: [
-      "Administrative support",
-      "Customer service",
-      "Office and project support",
-      "Progression into technical training",
+      "IoT or technical support",
+      "Connected-device installation support",
+      "Junior systems or network support",
+      "Further study in IoT, electronics, or networking",
     ],
   },
   {
     number: "04",
-    slug: "entrepreneurship",
-    title: "Entrepreneurship",
-    category: "Business & Professional",
+    slug: "cloud-administration",
+    title: "Cloud Administration",
+    category: "IT & Technical",
     description:
-      "Turn an idea into a plan with practical business and workplace skills.",
-    duration: "6 months",
-    level: "All levels",
-    tag: "Build your future",
+      "Build skills to manage cloud services, user access, and essential IT resources.",
+    duration: "By intake",
+    level: "Career starter",
+    tag: "Cloud foundations",
     accent: "coral",
     eligibility:
-      "Aspiring entrepreneurs and learners with an idea, a community challenge, or an interest in business.",
+      "Learners interested in IT systems and online services. Basic computer confidence is useful; any formal entry requirements are confirmed for each intake.",
     delivery:
-      "Workshop-based learning with guided planning, feedback, and a practical business concept project.",
+      "Hybrid learning combines online study with scheduled in-person sessions. Guided demonstrations and practical exercises introduce cloud administration concepts, supported by independent study.",
     accreditation:
-      "Programme recognition depends on the selected intake and partner requirements.",
-    funding: "Funding and enterprise support vary by opportunity and partner.",
+      "Accreditation and certification details are confirmed for each intake.",
+    funding:
+      "Funding availability and eligibility depend on the specific opportunity and intake.",
     learn: [
-      "Finding and understanding a customer need",
-      "Business models and value propositions",
-      "Basic budgeting, marketing, and pitching",
-      "Turning an idea into an actionable plan",
+      "Cloud computing concepts and service models",
+      "Cloud resources such as compute, storage, and networking",
+      "User accounts, permissions, and access management",
+      "Monitoring, backups, security, and cost awareness",
     ],
     careers: [
-      "Small business development",
-      "Freelance work",
-      "Enterprise support",
-      "Further business study",
+      "Junior cloud support",
+      "Cloud operations assistant",
+      "IT or systems support",
+      "Further study toward cloud certifications",
     ],
   },
 ];
 
 export const opportunities = [
   {
-    type: "Learnership",
-    title: "MICT SETA skills programmes",
-    detail: "Applications open for funded ICT pathways",
-    status: "Open now",
-    statusKey: "open",
-    closingDate: "Rolling intake",
-    location: "Johannesburg / blended",
-    requirements: "South African youth; intake requirements apply",
+    type: "Learnerships & Internships",
+    title: "Build your career in Information and Communications Technology",
+    detail:
+      "Explore structured learning and workplace opportunities that help you develop practical ICT skills.",
+    status: "Explore opportunities",
+    statusKey: "explore",
+    closingDate: "Dates vary by programme",
+    location: "Location varies by programme",
+    requirements:
+      "Eligibility and entry requirements depend on the programme",
   },
   {
-    type: "Internship",
-    title: "Workplace experience programme",
-    detail: "For graduates ready to turn knowledge into experience",
-    status: "Closing soon",
-    statusKey: "closing",
-    closingDate: "Check current intake",
-    location: "Johannesburg",
-    requirements: "Recent graduates with relevant studies",
+    type: "Work-Integrated Learning",
+    title: "Gain practical workplace experience",
+    detail:
+      "Apply what you have studied, develop professional skills and gain experience in a working environment.",
+    status: "Explore opportunities",
+    statusKey: "explore",
+    closingDate: "Dates vary by placement",
+    location: "Placement dependent",
+    requirements:
+      "For students and graduates who meet the placement requirements",
   },
   {
-    type: "Custom training",
-    title: "Training for organisations",
-    detail: "Practical digital skills built around your team",
+    type: "Masterclasses",
+    title: "Develop your team's digital skills",
+    detail:
+      "Explore focused training that helps teams strengthen their digital capabilities and apply new skills at work.",
     status: "Enquire now",
     statusKey: "enquire",
-    closingDate: "Available year-round",
-    location: "On-site / blended",
-    requirements: "For organisations and industry partners",
+    closingDate: "Scheduling by arrangement",
+    location: "Delivery options available on enquiry",
+    requirements:
+      "For organisations and teams; prerequisites vary by course",
   },
 ];
