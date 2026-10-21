@@ -20,6 +20,13 @@ function HomePage() {
   const testimonial = testimonials[activeTestimonial];
 
   useEffect(() => {
+    heroSlides.forEach((slide) => {
+      const preload = new Image();
+      preload.src = slide.src;
+    });
+  }, []);
+
+  useEffect(() => {
     const slideTimer = window.setInterval(() => {
       setActiveHeroSlide(
         (currentSlide) => (currentSlide + 1) % heroSlides.length,
